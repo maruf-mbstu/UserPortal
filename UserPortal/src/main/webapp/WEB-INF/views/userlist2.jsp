@@ -38,12 +38,12 @@
 			</tr>
 		</c:forEach>
 	</table>
-
-
+  
 	<form action="searchbyname" method="post">
 		<br> UserName : <input type="text" name="name" id="name">
 		<br><br> <input type="submit" name="submit" value="Search" id="button">
 	</form>
+
 </body>
 
 </html>

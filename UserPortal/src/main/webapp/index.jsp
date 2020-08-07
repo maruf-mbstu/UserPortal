@@ -41,9 +41,7 @@ body {
 </head>
 
 <body>
-<% String msg = (String)session.getAttribute("incorrect");
-if(msg != null) out.println(msg);
-%>
+
 	<div id="login">
 		<h3 class="text-center text-white pt-5">Login form</h3>
 		<div class="container">

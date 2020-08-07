@@ -15,10 +15,16 @@ public class UserDao {
 	}
 
 	public int save(User user) {
-		String sql = "insert into user(firstname,lastname,address,phone,email,birthdate,password) values('"
-				+ user.getFirstName() + "','" + user.getLastName() + "','" + user.getAddress() + "','" + user.getPhone()
-				+ "','" + user.getEmail() + "','" + user.getBirthDate() + "','" + user.getPassword() + "')";
-		return template.update(sql);
+		try {
+			String sql = "insert into user(firstname,lastname,address,phone,email,birthdate,password) values('"
+					+ user.getFirstName() + "','" + user.getLastName() + "','" + user.getAddress() + "','" + user.getPhone()
+					+ "','" + user.getEmail() + "','" + user.getBirthDate() + "','" + user.getPassword() + "')";
+			return template.update(sql);
+		}
+		catch(Exception e)
+		{
+			return -1; 
+		}
 
 	}
 
@@ -31,20 +37,39 @@ public class UserDao {
 			return null;
 		}
 	}
-	
+
 	public List<User> getUsers() {
 
 		String sql = "select * from user ";
 
-		List<User> users =template.query(sql, new BeanPropertyRowMapper<User>(User.class));
+		List<User> users = template.query(sql, new BeanPropertyRowMapper<User>(User.class));
 
 		return users;
 	}
-	
-	public int setnewpass(int id,String newpass)
-	{
-		String sql = "update user set password=? where id=?";
-		return template.update(sql,newpass,id);
+
+	public int setnewpass(String email, String newpass) {
+		String sql = "update user set password=? where email=?";
+		return template.update(sql, newpass, email);
+	}
+
+	public User getUserByEmail(String email) {
+		String sql = "select * from user where email=?";
+		try {
+			return template.queryForObject(sql, new Object[] { email }, new BeanPropertyRowMapper<User>(User.class));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public List<User> getUsersByName(String name) {
+		String sql = "select * from user where firstname=? or lastname=?";
+		try {
+			List<User> users = template.query(sql, new Object[] { name , name }, new BeanPropertyRowMapper<User>(User.class));
+			return users;
+		} catch(Exception e) {
+			return null;
+		}
+		
 	}
 
 }

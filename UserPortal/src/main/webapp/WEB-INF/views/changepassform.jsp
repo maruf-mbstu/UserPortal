@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Change Password</h1>
-	<form:form method="post" action="newpass?id=${userid}">
+	<form:form method="post" action="newpass?email=${useremail}">
 		<table>
 			<tr>
 				<td>Previous Password :</td>
