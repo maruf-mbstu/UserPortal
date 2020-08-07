@@ -57,7 +57,7 @@ public class UserController {
 		int i = -1;
 		if (!user.getEmail().trim().contentEquals(""))
 			i = dao.save(user);
-		if (i == -1) // checkEmail Availability
+		if (i == -1) // checkEmail Availability...
 			return "redirect:/regform";
 
 		session = request.getSession();
@@ -123,6 +123,7 @@ public class UserController {
 		
 	}
 
+	
 	@RequestMapping(value = "/searchbyname", method = RequestMethod.POST)
 	public String userListSearchedByName(@RequestParam String name, Model m) {
 		List<User> list = dao.getUsersByName(name);
