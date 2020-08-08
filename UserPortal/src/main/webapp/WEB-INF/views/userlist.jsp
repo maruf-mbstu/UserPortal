@@ -62,7 +62,7 @@
 			</div>
 		</form:form><br>
 
-		<table class="table table-striped">
+		<table class="table table-striped" id="nothing">
 			<thead>
 				<tr>
 					<th scope="col">First Name</th>
