@@ -3,14 +3,23 @@
 
 <html>
 <head>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
 <%@ page isELIgnored="false"%>
 </head>
 <body>
 
-	<h2>${passmsg}</h2> <br><br>
-	
-	<a href="userprofile">back to profile</a>
-	
+
+	<div class="container">
+	<br><br>
+         <a class="btn btn-primary"
+			href="userprofile" role="button" id="button">back to profile</a><br><br>
+		<h1 class="bg-success">${passmsg}</h1>
+		<br>
+	</div>
+
 
 </body>
 

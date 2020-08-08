@@ -75,9 +75,19 @@ public class UserController {
 	public String newpassword(@RequestParam String prepass, @RequestParam String newpass, @RequestParam String conpass,
 			@RequestParam String email, Model m) {
 		String passmsg;
-		if (!newpass.contentEquals(conpass)) {
+		 
+		//check if you write the current/previous password correct.
+		User user = dao.getUserByEmailAndPass(email, prepass);
+		if(user == null) {
+			passmsg = "You have entered current password wrong!!";
+		}
+		
+		// check if new password and confirm password are matched. 
+		else if (!newpass.contentEquals(conpass)) {
 			passmsg = "New Password and Confirm Password didn't match..";
-		} else {
+		}
+		
+		else {
 			dao.setnewpass(email, newpass);
 			passmsg = "Password is Changed Successfully!";
 		}
