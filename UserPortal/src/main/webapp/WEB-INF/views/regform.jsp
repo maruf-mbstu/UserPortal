@@ -10,7 +10,7 @@
 
 <style>
 #result {
-  margin-left:300px;
+  margin-left:310px;
 }
 </style>
 
@@ -126,8 +126,8 @@ $(document).ready(function(){
 								<div class="col-md-6">
 									<form:input path="email" class="form-control" id="email" />
 							    </div>
+							    <span style="color:blue" id="result"></span>
 							</div>
-							<span class="alert alert-primary" id="result"></span>
 								
 
 								<div class="form-group row">
