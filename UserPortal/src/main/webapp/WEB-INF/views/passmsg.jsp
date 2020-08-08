@@ -11,15 +11,13 @@
 </head>
 <body>
 
-
 	<div class="container">
 	<br><br>
          <a class="btn btn-primary"
 			href="userprofile" role="button" id="button">back to profile</a><br><br>
-		<h1 class="bg-success">${passmsg}</h1>
+		<h1 class="bg-success" id="nothing">${passmsg}</h1>
 		<br>
 	</div>
-
 
 </body>
 
